@@ -1,6 +1,6 @@
 {% set provider = "GitHub" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "2.2.1" %}
+{% set version = "2.4.1" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
@@ -12,9 +12,9 @@ package:
   version: {{ version }}
 
 source:
-  - folder:  {{ pkg_src }}
+  - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 8551ebd438184d31558b3410d769d70265efb902f0b71d2f11afea75ca8ee8b8
+    sha256: 5bae8f3022c5af77feaf2dc6df7edb484af2e3d1658ecf38b6db4ee22c343bcf
 
 build:
   number: 0
@@ -31,7 +31,7 @@ requirements:
     - terraform >=0.11.11  # [win]
 
 test:
-  requires:         # [win]
+  requires:   # [win]
     - m2-bash       # [win]
     - m2-coreutils  # [win]
 
